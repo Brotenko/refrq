@@ -17,25 +17,25 @@
 }
 \makeatother
 
-% Hightlighting box around a specified text (argument 1). The fallback colour for the box is magenta, but another
+% Highlighting box around a specified text (argument 1). The fallback colour for the box is magenta, but another
 % colour can be specified (argument 2) if needed.
 %   arg1           : To-be highlighted text
-%   arg2 (optional): Box-colour
+%   arg2 (optional): Box colour
 %           example: \highlight[cyan]{This is some text}
 \newtcbox{\highlight}[1][magenta]{on line, arc=5pt,colback=#1!10!white,colframe=#1!50!black, before upper={\rule[-3pt]{0pt}{10pt}},boxrule=1pt, boxsep=0pt,left=4pt,right=3pt,top=2pt,bottom=1pt}
 
 % ATTENTION: CASE SENSITIVE!
-% Creates a research question for the paper. This entails a hightlighted-box with a label for the question and an 
+% Creates a research question for the paper. This entails a highlighted box with a label for the question and an 
 % italic text that is "saved" for later referencing. An invisible version of the text is placed at the position of
 % the original text with a big label around it for easy referencing and linking to.
 %     arg1: RQ-Label
 %     arg2: Text of the research question
-%  example: \researchq{RQ1}{This is a \textbf{resarch} question!}
+%  example: \researchq{RQ1}{This is a \textbf{research} question!}
 \newcommand{\researchq}[2]{
     \noindent % No indent please :)
     \highlight{\textbf{\texttt{\textcolor{gray}{#1}}}} % Creates the coloured box for the label
     \textit{#2} % Displays the actual text of the question in italics, keeping all additional formatting
-    \labeltext{\highlight{\textbf{\texttt{\textcolor{gray}{#1}}}} \textit{#2}} % "Saving" the rq incl. question text. It's placed invisibly at the position of the actual question, so it can be easily reference and linked to.
+    \labeltext{\highlight{\textbf{\texttt{\textcolor{gray}{#1}}}} \textit{#2}} % "Saving" the rq incl. question text. It's placed invisibly at the position of the actual question, so it can be easily referenced and linked to.
     {rq:#1} % The specific label for this rq; label-name is equivalent to "rq:" + arg1
 }
 
@@ -46,13 +46,13 @@
 \newcommand{\refrq}[1]{\ref{rq:#1}}
 
 % ATTENTION: CASE SENSITIVE!
-% Show the label of the research question without a label-reference-link and without the text.
+% Show the label of the research question without a label-reference link and without the text.
 %     arg1: The rq that is to be referenced
 %  example: \norefrq{RQ1}
 \newcommand{\norefrq}[1]{\highlight{\textbf{\texttt{\textcolor{gray}{#1}}}}}
 
 % ATTENTION: CASE SENSITIVE!
-% Show the label of the research question with a label-reference-link but without the text.
+% Show the label of the research question with a label-reference link but without the text.
 %     arg1: The rq that is to be referenced
 %  example: \notextrefrq{RQ1}
 \newcommand{\notextrefrq}[1]{\hyperref[rq:#1]{\highlight{\textbf{\texttt{\textcolor{gray}{#1}}}}}}
